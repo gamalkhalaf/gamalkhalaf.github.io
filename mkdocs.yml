@@ -3,5 +3,5 @@ site_url: https://gamalkhalaf.github.io/
 theme:
   name: material
 nav:
-  - Home: index.md
-  - Coffee Guide: coffee.md
+   - الرئيسية: index.md
+   - دروس في النحو: nahw.md
