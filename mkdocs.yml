@@ -1,2 +1,4 @@
 site_name: Gamal Khalaf
 site_url: https://gamalkhalaf.github.io/
+theme:
+  name: material
