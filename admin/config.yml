@@ -1,6 +1,7 @@
 backend:
-  name: git-gateway
-  branch: main
+    name: test-local
+  # name: git-gateway
+  # branch: main
 
 site_url: https://sweet-baklava-619a0f.netlify.app
 
