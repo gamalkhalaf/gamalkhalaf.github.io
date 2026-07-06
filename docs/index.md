@@ -1,53 +1,56 @@
-# A Beginner's Guide to Espresso
+# السيرة الذاتية — جمال خلف عبد الحفيظ
 
-Espresso is a concentrated coffee brewing method that forces hot water through finely-ground coffee under pressure. This page covers the basics: equipment, technique, and troubleshooting.
-
-## Why Espresso Is Different
-
-Unlike drip coffee, espresso relies on **pressure** (typically 9 bars) rather than gravity alone. This produces a thicker body, a layer of golden foam called *crema*, and a much more concentrated flavor in a small volume — usually 25–35ml per shot.
-
-> "Espresso is not a bean, a roast, or a country of origin — it's a brewing method." — unknown barista
-
-## Equipment You'll Need
-
-| Equipment       | Purpose                          | Budget Option        |
-|-----------------|-----------------------------------|-----------------------|
-| Espresso machine | Generates pressure and heat      | Semi-automatic, ~$150 |
-| Grinder          | Produces consistent fine grounds | Manual burr grinder   |
-| Scale            | Measures dose and yield by weight| Any 0.1g precision    |
-| Tamper           | Compresses grounds evenly        | Comes with most machines |
-
-## Basic Recipe
-
-A standard single-shot recipe looks like this:
-
-```text
-Dose:   18g ground coffee
-Yield:  36g liquid espresso
-Time:   25–30 seconds
-Water:  93–96°C
-```
-
-Steps:
-
-1. Grind 18g of coffee to a fine, slightly sticky consistency.
-2. Distribute the grounds evenly in the portafilter basket.
-3. Tamp firmly and level — aim for consistent, even pressure.
-4. Lock the portafilter in and start the shot immediately.
-5. Stop the shot once you reach ~36g of liquid in the cup.
-
-## Common Problems
-
-- [x] Shot pulls too fast (under 20s) → grind finer
-- [x] Shot pulls too slow (over 35s) → grind coarser
-- [ ] Crema disappears quickly → beans may be stale
-- [ ] Sour taste → under-extracted, try a finer grind or longer shot
-
-## Useful Resources
-
-- [European Coffee Trip](https://europeancoffeetrip.com) — cafe guides across Europe
-- [James Hoffmann on YouTube](https://www.youtube.com/@jameshoffmann) — brewing science and reviews
+**مدرس لغة عربية** | **17 سنة خبرة**
 
 ---
 
-*This page is a placeholder used to test Markdown rendering — headings, tables, code blocks, checklists, blockquotes, and links — inside the MkDocs Material theme.*
+## 📞 معلومات الاتصال
+- **البريد الإلكتروني:** gamalkhalafabdelhafiz@gmail.com
+- **الهاتف:** ٠١٠٦٥٣٥١٩٨٣
+- **العنوان:** الهرم، محافظة الجيزة، مصر
+
+---
+
+## 🎯 الهدف المهني
+> "العمل في بيئة تعليمية متميزة تتيح لي توظيف خبراتي التربوية واللغوية في تعليم اللغة العربية، والمساهمة في رفع مستوى الطلاب علميًا وسلوكيًا، مع السعي المستمر للتطوير المهني."
+
+---
+
+## 💼 الخبرات العملية
+
+### مدرس لغة عربية — وزارة التربية والتعليم المصرية
+*منذ عام 2008 حتى الآن*
+- تدريس مناهج اللغة العربية لجميع المراحل الدراسية.
+- إعداد خطط دراسية وتقييمات دورية.
+- تنمية مهارات الطلاب في النحو، والبلاغة، والتعبير، والقراءة.
+- المشاركة في لجان الامتحانات والتصحيح ومتابعة الأداء الأكاديمي.
+
+---
+
+## 🎓 المؤهلات العلمية
+
+- **ليسانس آداب وتربية — قسم اللغة العربية**
+  - **الجهة:** جامعة الفيوم
+  - **سنة التخرج:** 2007
+
+---
+
+## 🛠️ المهارات
+- قواعد النحو والصرف
+- الشرح والتبسيط
+- إدارة الصف
+- الوسائل التكنولوجية
+- إعداد الاختبارات
+
+---
+
+## 📜 الدورات التدريبية
+- دورات تطوير مهني لمعلمي اللغة العربية.
+- برامج تدريبية في استخدام التكنولوجيا في التعليم.
+- ورش عمل في استراتيجيات التعلم النشط.
+
+---
+
+## 🌐 اللغات
+- **اللغة العربية:** اللغة الأم (ممتاز ⭐⭐⭐⭐⭐)
+- **اللغة الإنجليزية:** جيد (⭐⭐⭐)

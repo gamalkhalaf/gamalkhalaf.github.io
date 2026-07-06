@@ -1,9 +1,58 @@
-site_name: Gamal Khalaf
+site_name: جمال خلف
 site_url: https://gamalkhalaf.github.io/
+site_author: جمال خلف  # <-- سيتم عرضه تلقائياً في التذييل بناءً على الكود أعلاه
+
 theme:
   name: material
- 
   language: ar
+  custom_dir: overrides  # <-- هذا السطر يربط المجلد الذي أنشأناه
+  hide:
+    - generator
+  
+  # 1. تخصيص الألوان والوضع الليلي/النهاري
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: التبديل إلى الوضع المظلم
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: التبديل إلى الوضع الفاتح
+
+  # 2. ميزات الواجهة والتنقل الاحترافي
+  features:
+    - navigation.tabs          # تحويل القائمة الجانبية إلى تبويبات علوية أنيقة
+    - navigation.sections      # تنظيم المحتوى في أقسام واضحة
+    - navigation.top           # زر العودة إلى الأعلى عند التمرير لأسفل
+    - navigation.tracking      # تحديث الرابط تلقائياً أثناء التمرير لقراءة الدرس
+    - search.suggest           # إظهار اقتراحات ذكية أثناء البحث
+    - search.highlight         # تظليل الكلمات المبحوث عنها في النص
+    - content.code.copy        # إضافة زر نسخ الأكواد/الأمثلة بسهولة
+
+  # 3. الخطوط (اختيار خطوط تدعم العربية بشكل ممتاز)
+  font:
+    text: Cairo
+    code: Roboto Mono
+
+# 4. إضافات الماركداون لتحسين عرض النصوص والشروحات
+markdown_extensions:
+  - admonition                 # صناديق الملاحظات والتنبيهات (ممتازة للقواعد النحوية)
+  - pymdownx.details           # قوائم منسدلة لإخفاء وإظهار الإجابات/الأسئلة
+  - pymdownx.superfences       # تحسين عرض الأكواد البرمجية والأمثلة
+  - pymdownx.tabbed:           # تبويبات داخل الصفحة (مثلاً: أمثلة / إعراب)
+      alternate_style: true
+  - attr_list                  # لتخصيص الألوان والأحجام لبعض الكلمات تلقائياً
+
 nav:
-   - الرئيسية: index.md
-   - دروس في النحو: nahw.md
+  - الرئيسية: index.md
+  - دروس في النحو:
+    - مقدمة عن النحو: nahw.md
+    
+    # يمكنك إضافة دروس أخرى هنا مستقبلاً لتنظيم احترافي
