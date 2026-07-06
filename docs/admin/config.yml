@@ -1,11 +1,12 @@
 backend:
-  name: github
-  repo: gamalkhalaf/gamalkhalaf.github.io
+  name: git-gateway
   branch: main
-  auth_type: implicit
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
+
+# للاختبار المحلي: أضف السطر التالي واشغل npx decap-server
+# local_backend: true
 
 collections:
   - name: "nahw_lessons"

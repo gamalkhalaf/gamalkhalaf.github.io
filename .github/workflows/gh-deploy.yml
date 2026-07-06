@@ -5,20 +5,25 @@ on:
     branches:
       - main
 
-# 1. إعطاء الصلاحية للـ Action للكتابة وتحديث صفحات الـ GitHub Pages
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: MkDocs Github Pages automatic deployment
+    name: MkDocs Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v3 # تحديث لإصدار مستقر وأحدث
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.9
-        uses: actions/setup-python@v4 # تحديث لإصدار مستقر وأحدث
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
@@ -27,13 +32,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 2. تهيئة هوية الـ Git للـ Action قبل تنفيذ أمر البناء والرفع
-      - name: Configure Git Bot
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      # بناء ملفات الموقع الثابتة داخل مجلد site دون عمل deploy يدوي
+      - name: Build Site
+        run: mkdocs build
 
-      - name: MkDocs gh-deploy
-        run: |
-          git pull
-          mkdocs gh-deploy --force
+      # رفع الملفات الناتجة كـ Artifact متوافق مع نظام GitHub الجديد
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+      # الرفع النهائي المباشر إلى سيرفرات الاستضافة
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

@@ -53,6 +53,8 @@ markdown_extensions:
 # 5. ربط سكربت الجافا سكريبت الذكي لحماية الصفحات بكلمة مرور
 extra_javascript:
   - javascripts/lock.js
+  - https://identity.netlify.com/v1/netlify-identity-widget.js
+  
 
 nav:
   - الرئيسية: index.md
