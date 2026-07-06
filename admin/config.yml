@@ -1,8 +1,8 @@
 backend:
-  name: github
-  repo: gamalkhalaf/gamalkhalaf.github.io
+  name: git-gateway
   branch: main
-  site_url:https://sweet-baklava-619a0f.netlify.app/ # <-- استبدل هذا برابط موقعك الفعلي الظاهر في حسابك على Netlify
+
+site_url: https://sweet-baklava-619a0f.netlify.app
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
