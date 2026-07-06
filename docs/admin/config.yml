@@ -1,5 +1,5 @@
 backend:
-    name: test-local
+    name: test
   # name: git-gateway
   # branch: main
 
