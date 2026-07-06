@@ -50,20 +50,8 @@ function applyContentProtection() {
     }
 }
 
-// تشغيل دالة الحماية عند أول تحميل للموقع
 document.addEventListener("DOMContentLoaded", function () {
     applyContentProtection();
-    
-    // تهيئة ميزة إعادة التوجيه التلقائي بعد تسجيل دخول الـ Admin عبر Netlify Identity
-    if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-            if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                });
-            }
-        });
-    }
 });
 
 // حل مشكلة التصفح الفوري (Instant Loading) في ثيم Material
