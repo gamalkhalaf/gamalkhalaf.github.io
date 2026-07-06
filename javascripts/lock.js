@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
+// دالة الحماية وقفل المحتوى المخصصة
+function applyContentProtection() {
     // التحقق من وجود وسم التشفير في الصفحة الحالية
-    if (document.body.innerHTML.includes("<!-- encrypt -->") || document.querySelector('meta[name="encrypt"]')) {
+    if (document.body.innerHTML.includes("") || document.querySelector('meta[name="encrypt"]')) {
         
         // التحقق مما إذا كان المستخدم قد أدخل كلمة المرور مسبقاً في هذه الجلسة
         if (sessionStorage.getItem("site_authorized") !== "true") {
@@ -10,8 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (originalContent) {
                 originalContent.style.display = "none";
                 
+                // منع ظهور واجهات مكررة إذا كان هناك واحدة قديمة
+                const oldPrompt = document.getElementById("custom-lock-prompt");
+                if (oldPrompt) oldPrompt.remove();
+
                 // إنشاء واجهة طلب كلمة المرور الأنيقة المتوافقة مع الـ Dark/Light Mode
                 const promptContainer = document.createElement("div");
+                promptContainer.id = "custom-lock-prompt";
                 promptContainer.style.cssText = "text-align: center; padding: 50px 20px; max-width: 400px; margin: 100px auto; border: 1px solid var(--md-typeset-table-color); border-radius: 8px; background: var(--md-code-bg-color);";
                 
                 promptContainer.innerHTML = `
@@ -26,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 // دالة التحقق من كلمة المرور
                 const checkPassword = () => {
                     const enteredPass = document.getElementById("site-pass").value;
-                    if (enteredPass === "123456") { // <-- ضع كلمة المرور التي تريدها هنا
+                    if (enteredPass === "Gamal@123") { // تم التحديث لكلمة المرور الخاصة بك
                         sessionStorage.setItem("site_authorized", "true");
                         promptContainer.remove();
                         originalContent.style.display = "block";
                     } else {
-                        alert("كلمة مرور خاطئة! يرجى المحاولة مجدداً.");
+                        alert("...كلمة مرور خاطئة! يرجى المحاولة مجدداً");
                     }
                 };
                 
@@ -42,4 +48,28 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+}
+
+// تشغيل دالة الحماية عند أول تحميل للموقع
+document.addEventListener("DOMContentLoaded", function () {
+    applyContentProtection();
+    
+    // تهيئة ميزة إعادة التوجيه التلقائي بعد تسجيل دخول الـ Admin عبر Netlify Identity
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
 });
+
+// حل مشكلة التصفح الفوري (Instant Loading) في ثيم Material
+// يضمن هذا السطر إعادة تشغيل نظام الحماية فور تنقل المستخدم لدرس آخر
+if (typeof app_ !== "undefined") {
+    app_.subscribe(function () {
+        applyContentProtection();
+    });
+}

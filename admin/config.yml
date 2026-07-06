@@ -1,16 +1,17 @@
 backend:
   name: github
-  repo: gamalkhalaf/gamalkhalaf.github.io # <-- استبدل gamalkhalaf باسم مستخدم حسابك إذا كان مختلفاً
-  branch: main # فرع الكود الأساسي (المصدر) وليس فرع gh-pages الناتج عن البناء
+  repo: gamalkhalaf/gamalkhalaf.github.io
+  branch: main
+  site_url:https://sweet-baklava-619a0f.netlify.app/ # <-- استبدل هذا برابط موقعك الفعلي الظاهر في حسابك على Netlify
 
-media_folder: "docs/assets/images" # مكان حفظ الصور المرفوعة عبر لوحة التحكم
+media_folder: "docs/assets/images"
 public_folder: "/assets/images"
 
 collections:
   - name: "nahw_lessons"
     label: "دروس في النحو"
-    folder: "docs" # المجلد الذي يتم حفظ ملفات الـ md بداخله
-    create: true # السماح لـ Admin بإنشاء دروس جديدة من اللوحة
+    folder: "docs"
+    create: true
     slug: "{{slug}}"
     fields:
       - { label: "عنوان الدرس", name: "title", widget: "string" }
