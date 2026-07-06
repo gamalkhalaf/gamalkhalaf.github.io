@@ -1,11 +1,11 @@
 site_name: جمال خلف
 site_url: https://gamalkhalaf.github.io/
-site_author: جمال خلف  # <-- سيتم عرضه تلقائياً في التذييل بناءً على الكود أعلاه
+site_author: جمال خلف
 
 theme:
   name: material
   language: ar
-  custom_dir: overrides  # <-- هذا السطر يربط المجلد الذي أنشأناه
+  custom_dir: overrides
   hide:
     - generator
   
@@ -50,9 +50,11 @@ markdown_extensions:
       alternate_style: true
   - attr_list                  # لتخصيص الألوان والأحجام لبعض الكلمات تلقائياً
 
+# 5. ربط سكربت الجافا سكريبت الذكي لحماية الصفحات بكلمة مرور
+extra_javascript:
+  - javascripts/lock.js
+
 nav:
   - الرئيسية: index.md
   - دروس في النحو:
-    - مقدمة عن النحو: nahw.md
-    
-    # يمكنك إضافة دروس أخرى هنا مستقبلاً لتنظيم احترافي
+      - مقدمة عن النحو: nahw.md

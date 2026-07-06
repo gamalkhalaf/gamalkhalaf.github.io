@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: gamalkhalaf/gamalkhalaf.github.io # <-- استبدل gamalkhalaf باسم مستخدم حسابك إذا كان مختلفاً
+  branch: main # فرع الكود الأساسي (المصدر) وليس فرع gh-pages الناتج عن البناء
+
+media_folder: "docs/assets/images" # مكان حفظ الصور المرفوعة عبر لوحة التحكم
+public_folder: "/assets/images"
+
+collections:
+  - name: "nahw_lessons"
+    label: "دروس في النحو"
+    folder: "docs" # المجلد الذي يتم حفظ ملفات الـ md بداخله
+    create: true # السماح لـ Admin بإنشاء دروس جديدة من اللوحة
+    slug: "{{slug}}"
+    fields:
+      - { label: "عنوان الدرس", name: "title", widget: "string" }
+      - { label: "تفعيل التشفير وحماية الصفحة", name: "encrypt", widget: "boolean", default: true }
+      - { label: "محتوى الدرس", name: "body", widget: "markdown" }
