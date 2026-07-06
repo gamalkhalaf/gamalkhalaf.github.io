@@ -1,9 +1,8 @@
 backend:
-    name: test
-  # name: git-gateway
-  # branch: main
-
-site_url: https://sweet-baklava-619a0f.netlify.app
+  name: github
+  repo: gamalkhalaf/gamalkhalaf.github.io
+  branch: main
+  auth_type: implicit
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
