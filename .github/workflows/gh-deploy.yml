@@ -5,16 +5,20 @@ on:
     branches:
       - main
 
+# 1. إعطاء الصلاحية للـ Action للكتابة وتحديث صفحات الـ GitHub Pages
+permissions:
+  contents: write
+
 jobs:
   build:
     name: MkDocs Github Pages automatic deployment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # تحديث لإصدار مستقر وأحدث
 
       - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4 # تحديث لإصدار مستقر وأحدث
         with:
           python-version: '3.9'
 
@@ -22,7 +26,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      # 2. تهيئة هوية الـ Git للـ Action قبل تنفيذ أمر البناء والرفع
+      - name: Configure Git Bot
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: MkDocs gh-deploy
         run: |
           git pull
-          mkdocs gh-deploy
+          mkdocs gh-deploy --force
