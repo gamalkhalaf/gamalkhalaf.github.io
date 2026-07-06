@@ -2,8 +2,7 @@ backend:
   name: github
   repo: gamalkhalaf/gamalkhalaf.github.io
   branch: main
-  auth_type: implicit
-  app_id: YOUR_GITHUB_CLIENT_ID
+  base_url: https://your-proxy-url.vercel.app
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
