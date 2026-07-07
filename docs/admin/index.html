@@ -6,42 +6,46 @@
     <meta name="robots" content="noindex" />
     <title>لوحة التحكم | جمال خلف</title>
     <style>
-      body > div:first-child > aside,
-      body > div:first-child div > aside {
-        left: auto !important;
-        right: 10px !important;
+      /* 1. Global RTL Reset for Decap CMS UI */
+      body {
         direction: rtl !important;
       }
-      body > div:first-child > main,
-      body > div:first-child div > main {
-        padding-left: 10px !important;
-        padding-right: 280px !important;
+
+      /* 2. Fix the Sidebar (Aside) Position */
+      aside {
+        left: auto !important;
+        right: 0 !important;
+        border-right: none !important;
+        border-left: 1px solid #dfe3e6; /* Moves the divider border to the left side */
+      }
+
+      /* 3. Fix the Main Content Area */
+      main {
+        padding-left: 0 !important;
+        padding-right: 280px !important; /* Matches default CMS sidebar width */
+      }
+
+      /* 4. Fix specific UI components inside collections */
+      /* Prevents collection cards and headers from overflowing or covering each other */
+      main > div {
+        direction: rtl !important;
+      }
+
+      /* Smooth out the top navigation/header bar spacing */
+      header {
+        left: 0 !important;
+        right: 280px !important;
+        width: calc(100% - 280px) !important;
+      }
+      
+      /* Quick fix for search & filter alignment inside the toolbar */
+      div[class*="Toolbar"] {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
       }
     </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      (function() {
-        function fixLayout() {
-          var aside = document.querySelector('aside');
-          var main = document.querySelector('main');
-          if (!aside || !main) return false;
-          var aClass = aside.className;
-          var mClass = main.className;
-          if (!aClass || !mClass) return false;
-          var s = document.createElement('style');
-          s.textContent = [
-            '.' + aClass.split(' ').join('.') + ' { left: auto !important; right: 10px !important; direction: rtl !important; }',
-            '.' + mClass.split(' ').join('.') + ' { left: 100px !important; right: auto !important; }'
-          ].join('\n');
-          document.head.appendChild(s);
-          return true;
-        }
-        if (document.readyState !== 'loading') { fixLayout(); }
-        else { document.addEventListener('DOMContentLoaded', fixLayout); }
-        new MutationObserver(function() { if (fixLayout()) this.disconnect(); }).observe(document.body, { childList: true, subtree: true });
-      })();
-    </script>
   </body>
 </html>
