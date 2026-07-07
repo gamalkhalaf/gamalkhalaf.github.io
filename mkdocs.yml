@@ -43,7 +43,6 @@ theme:
 
 plugins:
   - search
-  - awesome-pages
   - encryptcontent
 
 # 4. إضافات الماركداون لتحسين عرض النصوص والشروحات
@@ -62,4 +61,8 @@ extra_javascript:
 
 nav:
   - الرئيسية: index.md
-  - دروس في النحو: nahw/
+  - دروس في النحو:
+      - nahw/index.md
+      - nahw/medhat.md
+      - nahw/medhat-1.md
+      - nahw/المُفرد-والجمع-والمثنى.md
