@@ -2,7 +2,7 @@ backend:
   name: github
   repo: gamalkhalaf/gamalkhalaf.github.io
   branch: main
-  base_url: https://your-proxy-url.vercel.app
+  base_url: https://netlify-cms-github-oauth-provider-q.vercel.app
 
 media_folder: "docs/assets/images"
 public_folder: "/assets/images"
