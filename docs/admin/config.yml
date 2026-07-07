@@ -3,27 +3,50 @@ backend:
   repo: gamalkhalaf/gamalkhalaf.github.io
   branch: main
   base_url: https://netlify-cms-github-oauth-provider-q.vercel.app
-
-media_folder: "docs/assets/images"
-public_folder: "/assets/images"
-
+media_folder: docs/assets/images
+public_folder: /assets/images
 collections:
-  - name: "nahw_lessons"
-    label: "دروس في النحو"
-    folder: "docs/nahw"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "عنوان الدرس", name: "title", widget: "string" }
-      - { label: "تفعيل التشفير وحماية الصفحة", name: "encrypt", widget: "boolean", default: true }
-      - { label: "محتوى الدرس", name: "body", widget: "markdown" }
-
-  - name: "sarf_lessons"
-    label: "دروس في الصرف"
-    folder: "docs/sarf"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "عنوان الدرس", name: "title", widget: "string" }
-      - { label: "تفعيل التشفير وحماية الصفحة", name: "encrypt", widget: "boolean", default: true }
-      - { label: "محتوى الدرس", name: "body", widget: "markdown" }
+- name: subjects
+  label: المواد الدراسية
+  folder: docs/admin/subjects
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: اسم المادة
+    name: label
+    widget: string
+  - label: المعرف (slug)
+    name: slug
+    widget: string
+- name: nahw_lessons
+  label: دروس في النحو
+  folder: docs/nahw
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: عنوان الدرس
+    name: title
+    widget: string
+  - label: تفعيل التشفير وحماية الصفحة
+    name: encrypt
+    widget: boolean
+    default: true
+  - label: محتوى الدرس
+    name: body
+    widget: markdown
+- name: sarf_lessons
+  label: دروس في الصرف
+  folder: docs/sarf
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: عنوان الدرس
+    name: title
+    widget: string
+  - label: تفعيل التشفير وحماية الصفحة
+    name: encrypt
+    widget: boolean
+    default: true
+  - label: محتوى الدرس
+    name: body
+    widget: markdown
