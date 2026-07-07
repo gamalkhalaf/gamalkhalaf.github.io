@@ -18,6 +18,9 @@ jobs:
   build:
     name: MkDocs Build and Deploy
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -29,8 +32,7 @@ jobs:
 
       - name: Install requirements
         run: |
-          python --version
-          pip --version
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       # بناء ملفات الموقع الثابتة داخل مجلد site دون عمل deploy يدوي
@@ -45,4 +47,5 @@ jobs:
 
       # الرفع النهائي المباشر إلى سيرفرات الاستضافة
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
