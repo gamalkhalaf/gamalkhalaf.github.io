@@ -9,12 +9,12 @@
       body > div:first-child > aside,
       body > div:first-child div > aside {
         left: auto !important;
-        right: 0 !important;
+        right: 10px !important;
         direction: rtl !important;
       }
       body > div:first-child > main,
       body > div:first-child div > main {
-        padding-left: 0 !important;
+        padding-left: 10px !important;
         padding-right: 280px !important;
       }
     </style>
@@ -32,8 +32,8 @@
           if (!aClass || !mClass) return false;
           var s = document.createElement('style');
           s.textContent = [
-            '.' + aClass.split(' ').join('.') + ' { left: auto !important; right: 0 !important; direction: rtl !important; }',
-            '.' + mClass.split(' ').join('.') + ' { padding-left: 0 !important; padding-right: 280px !important; }'
+            '.' + aClass.split(' ').join('.') + ' { left: auto !important; right: 10px !important; direction: rtl !important; }',
+            '.' + mClass.split(' ').join('.') + ' { padding-left: 10px !important; padding-right: 280px !important; }'
           ].join('\n');
           document.head.appendChild(s);
           return true;
