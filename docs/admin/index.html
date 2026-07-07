@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>لوحة التحكم | جمال خلف</title>
+    <style>
+      body > div:first-child > aside,
+      body > div:first-child div > aside {
+        left: auto !important;
+        right: 0 !important;
+        direction: rtl !important;
+      }
+      body > div:first-child > main,
+      body > div:first-child div > main {
+        padding-left: 0 !important;
+        padding-right: 280px !important;
+      }
+    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      (function() {
+        function fixLayout() {
+          var aside = document.querySelector('aside');
+          var main = document.querySelector('main');
+          if (!aside || !main) return false;
+          var aClass = aside.className;
+          var mClass = main.className;
+          if (!aClass || !mClass) return false;
+          var s = document.createElement('style');
+          s.textContent = [
+            '.' + aClass.split(' ').join('.') + ' { left: auto !important; right: 0 !important; direction: rtl !important; }',
+            '.' + mClass.split(' ').join('.') + ' { padding-left: 0 !important; padding-right: 280px !important; }'
+          ].join('\n');
+          document.head.appendChild(s);
+          return true;
+        }
+        if (document.readyState !== 'loading') { fixLayout(); }
+        else { document.addEventListener('DOMContentLoaded', fixLayout); }
+        new MutationObserver(function() { if (fixLayout()) this.disconnect(); }).observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
   </body>
 </html>
