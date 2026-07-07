@@ -41,6 +41,11 @@ theme:
     text: Cairo
     code: Roboto Mono
 
+plugins:
+  - search
+  - awesome-pages
+  - encryptcontent
+
 # 4. إضافات الماركداون لتحسين عرض النصوص والشروحات
 markdown_extensions:
   - admonition                 # صناديق الملاحظات والتنبيهات (ممتازة للقواعد النحوية)
@@ -57,5 +62,4 @@ extra_javascript:
 
 nav:
   - الرئيسية: index.md
-  - دروس في النحو:
-      - مقدمة عن النحو: nahw.md
+  - دروس في النحو: nahw/

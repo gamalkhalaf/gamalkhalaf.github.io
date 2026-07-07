@@ -10,7 +10,7 @@ public_folder: "/assets/images"
 collections:
   - name: "nahw_lessons"
     label: "دروس في النحو"
-    folder: "docs"
+    folder: "docs/nahw"
     create: true
     slug: "{{slug}}"
     fields:
