@@ -23,6 +23,8 @@ def main():
 
     for coll in existing.get('collections', []):
         if coll.get('name') == 'subjects':
+            coll['extension'] = 'yml'
+            coll['format'] = 'yaml'
             new_config['collections'].append(coll)
             break
 

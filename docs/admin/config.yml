@@ -11,6 +11,8 @@ collections:
   folder: docs/admin/subjects
   create: true
   slug: '{{slug}}'
+  extension: yml
+  format: yaml
   fields:
   - label: اسم المادة
     name: label
