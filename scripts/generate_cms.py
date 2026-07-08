@@ -1,6 +1,7 @@
 import copy
 import glob
 import os
+import shutil
 
 import yaml
 
@@ -12,6 +13,15 @@ CONFIG_PATH = os.path.join(ROOT, 'docs', 'admin', 'config.yml')
 def main():
     with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
         existing = yaml.safe_load(f)
+
+    old_generated_slugs = set()
+    for coll in existing.get('collections', []):
+        name = coll.get('name', '')
+        if name.endswith('_lessons'):
+            old_generated_slugs.add(name[:-8])
+            folder = coll.get('folder', '')
+            if folder.startswith('docs/'):
+                old_generated_slugs.add(folder.split('/', 1)[1])
 
     subject_files = sorted(glob.glob(os.path.join(SUBJECTS_DIR, '*.yml')))
 
@@ -35,12 +45,14 @@ def main():
         else:
             new_config['collections'].append(copy.deepcopy(coll))
 
+    current_slugs = set()
     for sf in subject_files:
         with open(sf, 'r', encoding='utf-8') as f:
             subject = yaml.safe_load(f)
 
         slug = subject['slug']
         label = subject['label']
+        current_slugs.add(slug)
 
         subject_dir = os.path.join(ROOT, 'docs', slug)
         index_path = os.path.join(subject_dir, 'index.md')
@@ -75,6 +87,13 @@ def main():
 
     with open(CONFIG_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(new_config, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+    docs_root = os.path.join(ROOT, 'docs')
+    for old_slug in old_generated_slugs:
+        if old_slug not in current_slugs:
+            old_path = os.path.join(docs_root, old_slug)
+            if os.path.isdir(old_path):
+                shutil.rmtree(old_path)
 
     print(f'Generated config.yml with {len(subject_files)} subjects')
 
