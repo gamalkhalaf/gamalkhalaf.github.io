@@ -20,19 +20,3 @@ collections:
   - label: المعرف (slug)
     name: slug
     widget: string
-- name: nahw_lessons
-  label: النحو
-  folder: docs/nahw
-  create: true
-  slug: '{{slug}}'
-  fields:
-  - label: عنوان الدرس
-    name: title
-    widget: string
-  - label: تفعيل التشفير وحماية الصفحة
-    name: encrypt
-    widget: boolean
-    default: true
-  - label: محتوى الدرس
-    name: body
-    widget: markdown
