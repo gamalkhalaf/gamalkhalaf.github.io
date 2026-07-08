@@ -1,4 +1,4 @@
 ---
 label: الادب
-slug: الادب
+slug: adab
 ---
