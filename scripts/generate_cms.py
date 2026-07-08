@@ -29,6 +29,9 @@ def main():
             updated_coll['format'] = 'yaml'
             updated_coll['slug'] = '{{fields.slug}}'
             new_config['collections'].append(updated_coll)
+        elif coll.get('name', '').endswith('_lessons'):
+            # remove generated collections for deleted subjects
+            continue
         else:
             new_config['collections'].append(copy.deepcopy(coll))
 
