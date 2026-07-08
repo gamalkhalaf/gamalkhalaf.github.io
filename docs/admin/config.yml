@@ -36,6 +36,22 @@ collections:
   - label: محتوى الدرس
     name: body
     widget: markdown
+- name: quraa_lessons
+  label: القراءة
+  folder: docs/quraa
+  create: true
+  slug: '{{slug}}'
+  fields:
+  - label: عنوان الدرس
+    name: title
+    widget: string
+  - label: تفعيل التشفير وحماية الصفحة
+    name: encrypt
+    widget: boolean
+    default: true
+  - label: محتوى الدرس
+    name: body
+    widget: markdown
 - name: nahw_lessons
   label: دروس في النحو
   folder: docs/nahw
