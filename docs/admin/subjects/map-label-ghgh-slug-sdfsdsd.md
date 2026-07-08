@@ -1,4 +1,4 @@
 ---
-label: ghgh
-slug: sdfsdsd
+label: الادب
+slug: الادب
 ---
