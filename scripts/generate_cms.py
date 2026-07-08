@@ -1,7 +1,8 @@
-import os
-import sys
-import yaml
+import copy
 import glob
+import os
+
+import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SUBJECTS_DIR = os.path.join(ROOT, 'docs', 'admin', 'subjects')
@@ -23,11 +24,13 @@ def main():
 
     for coll in existing.get('collections', []):
         if coll.get('name') == 'subjects':
-            coll['extension'] = 'yml'
-            coll['format'] = 'yaml'
-            coll['slug'] = '{{fields.slug}}'
-            new_config['collections'].append(coll)
-            break
+            updated_coll = copy.deepcopy(coll)
+            updated_coll['extension'] = 'yml'
+            updated_coll['format'] = 'yaml'
+            updated_coll['slug'] = '{{fields.slug}}'
+            new_config['collections'].append(updated_coll)
+        else:
+            new_config['collections'].append(copy.deepcopy(coll))
 
     for sf in subject_files:
         with open(sf, 'r', encoding='utf-8') as f:
@@ -43,7 +46,7 @@ def main():
             with open(index_path, 'w', encoding='utf-8') as f:
                 f.write(f'---\ntitle: {label}\n---\n\n# {label}\n\n')
 
-        new_config['collections'].append({
+        generated_collection = {
             'name': f'{slug}_lessons',
             'label': label,
             'folder': f'docs/{slug}',
@@ -54,7 +57,18 @@ def main():
                 {'label': 'تفعيل التشفير وحماية الصفحة', 'name': 'encrypt', 'widget': 'boolean', 'default': True},
                 {'label': 'محتوى الدرس', 'name': 'body', 'widget': 'markdown'},
             ],
-        })
+        }
+
+        existing_index = None
+        for index, collection in enumerate(new_config['collections']):
+            if collection.get('name') == generated_collection['name']:
+                existing_index = index
+                break
+
+        if existing_index is None:
+            new_config['collections'].append(generated_collection)
+        else:
+            new_config['collections'][existing_index] = generated_collection
 
     with open(CONFIG_PATH, 'w', encoding='utf-8') as f:
         yaml.dump(new_config, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
