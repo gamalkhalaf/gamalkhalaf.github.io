@@ -25,6 +25,7 @@ def main():
         if coll.get('name') == 'subjects':
             coll['extension'] = 'yml'
             coll['format'] = 'yaml'
+            coll['slug'] = '{{fields.slug}}'
             new_config['collections'].append(coll)
             break
 
