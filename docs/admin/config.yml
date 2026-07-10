@@ -69,7 +69,7 @@ collections:
     name: body
     widget: markdown
 - name: qiraa_lessons
-  label: ' دروس في القراءة'
+  label: القراءة
   folder: docs/qiraa
   create: true
   slug: '{{slug}}'
