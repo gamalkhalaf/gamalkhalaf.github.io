@@ -21,7 +21,7 @@ collections:
     name: slug
     widget: string
 - name: imlaa_lessons
-  label: دروس في الاملاء
+  label: الاملاء
   folder: docs/imlaa
   create: true
   slug: '{{slug}}'
