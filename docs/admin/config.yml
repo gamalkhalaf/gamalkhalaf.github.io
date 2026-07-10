@@ -37,7 +37,7 @@ collections:
     name: body
     widget: markdown
 - name: nahw_lessons
-  label: ' دروس في النحو'
+  label: النحو
   folder: docs/nahw
   create: true
   slug: '{{slug}}'
